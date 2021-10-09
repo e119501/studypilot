@@ -1,0 +1,48 @@
+{{ block title }}
+結果
+{{ endblock }}
+
+{{ block content }}
+
+<label for="file">進行状況:</label>
+
+<progress id="file" max="100" value="56"> 56% </progress>
+
+<table class="table">
+    <tr>
+        <td>外的報酬</td>
+        <td>{{ player.外的報酬 }} </td>
+    </tr>
+    <tr>
+        <td>内的報酬</td>
+        <td>{{ player.内的報酬 }} </td>
+    </tr>
+    <tr>
+        <td>社会的貢献</td>
+        <td>{{ player.社会的貢献 }} </td>
+
+        <td>合計値</td>
+        <td>{{ player.合計値 }} </td>
+
+        <td>判定
+        
+        {% if player.合計値 == 30 %}
+            <a>ぴったり</a>
+        {% elif player.合計値 <= 29 %}
+            <a style = "color:red;font-weight:bold;">点数が足りません。回答し直してください。お願いします。</a>
+        {% elif player.合計値 >= 30 %}
+            <a style = "color:red;font-weight: bold;">点数が多いです。回答し直してください。お願いします。</a>
+        {% endif %}
+        </td>
+
+        
+                
+    </tr>
+   
+</table>
+{{ next_button }}
+<button type="button" class="btn btn-primary btn-tab" data-offset="-1">Previous</button>
+{{endblock}}
+
+
+

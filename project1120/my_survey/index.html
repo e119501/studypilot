@@ -1,0 +1,66 @@
+{{ block title }}
+アンケート
+{{ endblock }}
+{{ block content }}
+
+<label for="file">進行状況:</label>
+
+<progress id="file" max="100" value="14"> 14% </progress>
+
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>属性アンケート</title>
+        <link rel="stylesheet" type="text/css" href="">
+    </head>
+    <body>
+        <p>
+            あなたの性別、学年、文理についてお答えください。
+        </p>
+        </body>
+    <body>
+        <table>
+            <table border="1">
+              
+                <thead><tr><th></th><th>1</th><th>2</th><th>3</th></thead>
+                <tr>
+                <td>性別</td>
+                <td>男性
+                </td>
+                <td>女性</td>
+                <td>無回答</td>
+                </tr>
+                <tr>
+                <td>学年</td>
+                <td>3年</td>
+                <td>4年</td>
+                <td></td>
+                </tr>
+                <td>文理</td>
+                <td>文系</td>
+                <td>理系</td>
+                <td></td>
+                </tr>
+                </table>
+        </table>
+        <table class="table table-striped">
+            <tr>
+                <th></th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+            </tr>
+            {{ for field in form }}
+            <tr>
+                <th>{{ field.label }}</th>
+                {{ for option in field }}
+                <td>{{ option }}</td>
+                {{ endfor }}
+            </tr>
+            {{ endfor }}
+        </table>
+    </body>
+</html>
+{{ next_button }}
+{{ endblock }}

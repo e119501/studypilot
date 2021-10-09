@@ -1,0 +1,102 @@
+{{ block title }}
+アンケート
+{{ endblock }}
+{{ block content }}
+
+<label for="file">進行状況:</label>
+
+<progress id="file" max="100" value="28"> 28% </progress>
+
+
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>志望業界アンケート</title>
+        <link rel="stylesheet" type="text/css" href="">
+    </head>
+    
+    <body>
+        <p>
+            現時点での、あなたの志望している業界を教えてください。回答欄の番号と表の番号は対応しています。
+        </p>
+        <p>
+            ひとつの業界を複数回選ぶことはできません。
+        </p>
+    </body>
+    <body>
+        <table>
+            <table border="1">
+                <thead><tr><th>番号</th><th>業界</th><th>番号</th><th>業界</th></tr></thead>
+                <tr>
+                <td>1</td>
+                <td>金融業界</td>
+                <td>8</td>
+                <td>自働車・機械業界</td>
+                </tr>
+                <tr>
+                <td>2</td>
+                <td>建設・不動産業界</td>
+                <td>9</td>
+                <td>電機・精密機器業界</td>
+                </tr>
+                <td>3</td>
+                <td>運輸・物流業界</td>
+                <td>10</td>
+                <td>食品・飲食業界</td>
+                </tr>
+                <td>4</td>
+                <td>流通・小売業界</td>
+                <td>11</td>
+                <td>生活品業界</td>
+                </tr>
+                <td>5</td>
+                <td>IT業界</td>
+                <td>12</td>
+                <td>サービス業界</td>
+                </tr>
+                <td>6</td>
+                <td>マスコミ・メディア・広報業界
+                </td>
+                <td>13</td>
+                <td>エンタメ・レジャー業界</td>
+                </tr>
+                <td>7</td>
+                <td>エネルギー・資源業界</td>
+                <td></td>
+                <td></td>
+                </tr>
+
+            </table>
+        </table>
+        <table class="table table-striped">
+            <tr>
+                <th></th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>
+                <th>7</th>
+                <th>8</th>
+                <th>9</th>
+                <th>10</th>
+                <th>11</th>
+                <th>12</th>
+                <th>13</th>
+            </tr>
+            {{ for field in form }}
+            <tr>
+                <th>{{ field.label }}</th>
+                {{ for option in field }}
+                <td>{{ option }}</td>
+                {{ endfor }}
+            </tr>
+            {{ endfor }}
+        </table>
+        
+    </body>
+</html>
+{{ next_button }}
+{{ endblock }}

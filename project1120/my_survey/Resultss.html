@@ -1,0 +1,72 @@
+
+ 
+{{ block title }}
+結果
+{{ endblock }}
+
+{{ block content }}
+
+<label for="file">進行状況:</label>
+
+<progress id="file" max="100" value="95"> 95% </progress>
+
+
+    <tr>
+        <td>選好１</td>
+        <tr>{{ player.選好先攻 }}</tr><br>
+        <td>選好2</td>
+        <tr>{{ player.選好後攻 }}</tr>
+        <br>
+        {% if player.選好先攻 == 5.0 %}
+            {% if player.選好後攻 <= 2.0 %}
+                <a>競争的</a>
+            {% elif player.選好後攻 == 3.0 %}
+                <a>羨望的</a>
+            {% elif player.選好後攻 == 4.0 %}
+                <a>羨望的</a>   
+            {% elif player.選好後攻 == 5.0 %}
+                <a>不平等回避的</a>
+            {% endif %}
+        {% elif player.選好先攻 == 4.0 %}
+            {% if player.選好後攻 <= 2.0 %}
+                <a>弱い者いじめ的</a>
+            {% elif player.選好後攻 == 3.0 %}
+                <a>利己的</a>
+            {% elif player.選好後攻 == 4.0 %}
+                <a>利己的</a>
+            {% elif player.選好後攻 == 5.0 %}
+                <a>マキシミン的</a>
+            {% endif %}
+　　　　{% elif player.選好先攻 == 3.0 %}
+            {% if player.選好後攻 <= 2.0 %}
+                <a>弱い者いじめ的</a>
+            {% elif player.選好後攻 == 3.0 %}
+                <a>利己的</a>
+            {% elif player.選好後攻 == 4.0 %}
+                <a>利己的</a>
+            {% elif player.選好後攻 == 5.0 %}
+                <a>マキシミン的</a>
+            {% endif %}
+        {% elif player.選好先攻 <= 2.0 %}
+            {% if player.選好後攻 <= 2.0 %}
+                <a>平等回避的</a>
+            {% elif player.選好後攻 == 3.0 %}
+                <a>こびへつらい的</a>
+            {% elif player.選好後攻 == 4.0 %}
+                <a>こびへつらい的</a>
+            {% elif player.選好後攻 == 5.0 %}
+                <a>利他的</a>
+            {% endif %}
+
+        {% endif %}    
+    </tr>
+ 
+
+   
+   
+{{ next_button }}
+<button type="button" class="btn btn-primary btn-tab" data-offset="-1">Previous</button>
+{{ endblock }}
+
+
+
